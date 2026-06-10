@@ -1,0 +1,138 @@
+{
+"taxonomy": [
+{
+"category": "Personal Data",
+"gdpr_ref": "Art. 4 No. 1 GDPR",
+"subcategories": [
+{
+"name": "Identification Data",
+"keywords": ["full names", "real names", "display names", "usernames", "screen names", "player names"]
+},
+{
+"name": "Contact Data",
+"keywords": ["email addresses", "e-mail addresses", "phone numbers", "telephone numbers", "home addresses", "physical addresses", "postal addresses", "mailing addresses", "post codes", "zip codes"]
+},
+{
+"name": "Online Identifiers",
+"keywords": ["IP addresses", "online identifiers", "social media profiles", "social media accounts", "Facebook profiles", "Facebook accounts", "Facebook IDs", "LinkedIn profiles", "LinkedIn accounts", "user IDs", "account IDs"]
+},
+{
+"name": "Location Data",
+"keywords": ["location data", "GPS locations", "geolocations", "latitudes", "longitudes", "time zones"]
+},
+{
+"name": "Demographic Data",
+"keywords": ["genders", "dates of birth", "DOB", "nationalities", "marital statuses"]
+},
+{
+"name": "Physical Characteristics",
+"keywords": ["physical attributes", "profile photos"]
+},
+{
+"name": "Professional Data",
+"keywords": ["job titles", "employers", "places of employment", "salaries", "salary grades", "job applications", "cover letters", "income levels", "incomes", "payrolls"]
+},
+{
+"name": "Financial Data",
+"keywords": ["credit cards", "credit card data", "credit card numbers", "credit card details", "last 4 digits", "expiry dates", "bank account numbers", "bank accounts", "IBAN", "order histories", "account balances", "donation amounts", "cryptocurrency wallets", "wallet addresses"]
+},
+{
+"name": "Identification Numbers",
+"keywords": ["social security numbers", "SSN", "passport numbers", "passports", "government-issued IDs", "government IDs", "Aadhaar numbers", "Aadhaar", "driver's license numbers", "driver's licences", "VIN numbers", "insurance numbers", "national IDs", "tax IDs", "tax numbers", "tax addresses"]
+},
+{
+"name": "Communication Data",
+"keywords": ["private messages", "direct messages", "chat logs", "chat histories", "forum posts", "support tickets"]
+},
+{
+"name": "Device Data",
+"keywords": ["device information", "device make", "device model", "device IDs", "device identifiers", "IMSI numbers", "IMSI", "IMEI", "serial numbers", "browser user agents", "user agents", "computer names"]
+},
+{
+"name": "Social and Cultural Data",
+"keywords": ["political views", "education levels", "relationship statuses"]
+},
+{
+"name": "Other Personal Data",
+"keywords": ["registration plates", "licence plates", "license plates", "travel histories", "loyalty programs"]
+},
+{
+"name": "General Personal Data References",
+"keywords": ["personal data", "personal information", "personal details", "PII", "sensitive data", "sensitive information", "customer data", "customer records", "customer information", "customer details", "customer database", "customers", "employee data", "employee records", "employee information", "employee details", "employee database", "employees", "citizen data", "citizen records", "citizen information", "citizens", "user data", "user records", "user information", "user details", "user database", "user profiles", "voter data", "voter records", "voter information", "voter rolls", "subscriber data", "subscriber records", "subscriber information", "patient data", "patient records", "patient information", "personal records", "medical records", "identity theft", "identity fraud", "identity data", "identity information", "identities", "exfiltrated"]
+}
+]
+},
+{
+"category": "Special Categories of Personal Data",
+"gdpr_ref": "Art. 9 GDPR",
+"subcategories": [
+{
+"name": "Health Data",
+"keywords": ["medical information", "medical data", "medical records", "medical histories", "patient conditions", "patient data", "patient records", "patients", "diagnoses", "diagnosed", "clinical data", "clinical", "psychotherapy", "psychotherapy sessions", "psychotherapist", "health-related data", "health-related information", "health data", "health information", "health records", "health conditions", "healthcare data", "healthcare records", "healthcare information", "prescriptions", "medications"]
+},
+{
+"name": "Biometric Data",
+"keywords": ["facial images", "facial recognition", "facial scans", "facial data", "biometric data", "biometric identifiers", "biometric information", "biometrics", "fingerprints", "face scans", "iris scans", "retina scans"]
+},
+{
+"name": "Genetic Data",
+"keywords": ["DNA", "genetic data", "genetic information", "genetic testing"]
+},
+{
+"name": "Data Concerning Sex Life or Sexual Orientation",
+"keywords": ["sexual orientations", "sexual", "adult content", "erotic content", "erotic", "LGBTQ", "escort data", "escort services", "escort site", "dating app", "dating site", "dating platform", "dating preferences", "dating profiles", "intimate"]
+},
+{
+"name": "Political Opinions",
+"keywords": ["political views", "political opinions", "political beliefs", "political party", "political parties", "political membership", "political affiliation"]
+},
+{
+"name": "Religious or Philosophical Beliefs",
+"keywords": ["religious beliefs", "religious views", "religious affiliation", "religious", "religions"]
+},
+{
+"name": "Trade Union Membership",
+"keywords": ["trade union membership", "trade union data", "trade union affiliation", "trade unions"]
+},
+{
+"name": "Racial or Ethnic Origin",
+"keywords": ["ethnicities", "ethnic origins", "ethnic data", "ethnic background", "racial data", "racial origins", "racial background", "racial"]
+}
+]
+},
+{
+"category": "Credentials and Access Data",
+"gdpr_ref": null,
+"subcategories": [
+{
+"name": "Hashed Passwords",
+"keywords": ["MD5 hashes", "MD5", "salted MD5", "SHA-1", "salted SHA-1", "SHA-256", "SHA-512", "bcrypt hashes", "bcrypt", "PBKDF2", "argon2", "phpass", "scrypt", "md5crypt", "Django(SHA-1)", "NTLM hashes", "NTLM", "hashed passwords"]
+},
+{
+"name": "Plaintext Passwords",
+"keywords": ["plain text passwords", "plaintext passwords", "cracked passwords", "passwords"]
+},
+{
+"name": "Authentication Tokens",
+"keywords": ["auth tokens", "authentication tokens", "access tokens", "reset tokens", "password reset tokens"]
+},
+{
+"name": "Two-Factor Authentication Data",
+"keywords": ["2FA secrets", "2FA codes", "2FA", "two-factor", "backup codes", "MFA"]
+},
+{
+"name": "Security Questions",
+"keywords": ["security questions", "security questions and answers"]
+},
+{
+"name": "API and Cryptographic Keys",
+"keywords": ["mnemonic phrases", "mnemonics", "encrypted master keys", "master keys", "encrypted recovery keys", "recovery keys", "API keys", "private keys"]
+},
+{
+"name": "Stealer Logs",
+"keywords": ["stealer logs", "stealers", "infostealers", "credentials", "browser fingerprints", "logins"]
+}
+]
+}
+]
+}
