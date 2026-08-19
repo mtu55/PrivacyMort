@@ -1,0 +1,79 @@
+======================================================================
+DELPHI ANCHOR SCENARIO SELECTION
+Family: LI+ID | P+C | AssetTech varies (incl. unclassified)
+Method: Patton (1990) – Maximum Variation Sampling
+======================================================================
+
+VARIATION QUESTIONS (DataCategory) – per anchor:
+  Q_var1: Would your answers change if only Personal Data (no Credentials) were affected?
+  Q_var2: Would your answers change if Special Categories were additionally affected?
+======================================================================
+
+──────────────────────────────────────────────────────────────────────
+ANCHOR 1 – AssetTech: Software / Web Application
+──────────────────────────────────────────────────────────────────────
+Title:        Spoutible
+Date:         2024-01-31 00:00:00
+Severity:     4
+AssetTech:    [not disclosed]
+Field Count:  8
+n (scenario): 151
+BaselineRisk: 0.529825
+
+Description:
+In January 2024, Spoutible had 207k records scraped from a misconfigured API that inadvertently returned excessive personal information. The data included names, usernames, email and IP addresses, phone numbers (where provided to the platform), genders and bcrypt password hashes. The incident also exposed 2FA secrets and backup codes along with password reset tokens.
+
+Detected Data Fields:
+  ✓ Email Address
+  ✓ Password (any form)
+  ✓ IP Address
+  ✓ Username
+  ✓ Name (full/real)
+  ✓ Phone Number
+  ✓ Gender
+  ✓ 2FA / Auth Token
+
+──────────────────────────────────────────────────────────────────────
+ANCHOR 2 – AssetTech: Unknown
+──────────────────────────────────────────────────────────────────────
+Title:        Hakko
+Date:         2019-03-28 00:00:00
+Severity:     4
+AssetTech:    [not disclosed]
+Field Count:  8
+n (scenario): 120
+BaselineRisk: 0.421053
+
+Description:
+In March 2019, the Japanese solder-related business Hakko Corporation suffered a data breach. The incident exposed almost 10k customer records including email and physical addresses, phone numbers, names, usernames, genders, dates of birth and plain text passwords.
+
+Detected Data Fields:
+  ✓ Email Address
+  ✓ Password (any form)
+  ✓ Username
+  ✓ Name (full/real)
+  ✓ Date of Birth
+  ✓ Phone Number
+  ✓ Physical Address
+  ✓ Gender
+
+──────────────────────────────────────────────────────────────────────
+ANCHOR 3 – AssetTech: Services provided by supplier
+──────────────────────────────────────────────────────────────────────
+Title:        AmartFurniture
+Date:         2022-05-16 00:00:00
+Severity:     4
+AssetTech:    [not disclosed]
+Field Count:  5
+n (scenario): 9
+BaselineRisk: 0.031579
+
+Description:
+In May 2022, the Australian retailer Amart Furniture advised that their warranty claims database hosted on Amazon Web Services had been the target of a cyber attack. Over 100k records containing email and physical address, names, phone numbers and passwords stored as bcrypt hashes were exposed and shared online by the attacker.
+
+Detected Data Fields:
+  ✓ Email Address
+  ✓ Password (any form)
+  ✓ Name (full/real)
+  ✓ Phone Number
+  ✓ Physical Address
