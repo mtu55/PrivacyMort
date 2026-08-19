@@ -21,13 +21,13 @@ INPUT_FILE  = Path(__file__).parent.parent / "data" / "processed" / "privacyrisq
 OUTPUT_FILE = Path(__file__).parent.parent / "results" / "mort_scenarios.xlsx"
 
 # LINDDUN categories to exclude
-LINDDUN_EXCLUDE = ['Unawareness', 'Non-compliance']
+LINDDUN_EXCLUDE = []
 
 # Asset types to exclude
-ASSET_EXCLUDE = ['Unknown', 'Services provided by supplier']
+ASSET_EXCLUDE = []
 
 # Minimum incidents per scenario
-MIN_COUNT = 5
+MIN_COUNT = 1
 
 
 # === FUNCTIONS ===
@@ -46,12 +46,12 @@ def get_severity(row):
     s = row['has_special_categories'] == 1
     c = row['has_credentials'] == 1
 
-    if c and p and s:   return 4  # Worst case
-    elif c and p:       return 3  # Identity + access compromised
-    elif p and s:       return 3  # Art. 9 + identifiable
-    elif c and s:       return 3  # Art. 9 + access compromised
-    elif s:             return 3  # Art. 9 alone: inherently high sensitivity
-    elif c:             return 2  # Credentials without personal context
+    if c and p and s:   return 6  # Worst case
+    elif c and p:       return 4  # Identity + access compromised
+    elif p and s:       return 4  # Art. 9 + identifiable
+    elif c and s:       return 4  # Art. 9 + access compromised
+    elif s:             return 4  # Art. 9 alone: inherently high sensitivity
+    elif c:             return 1  # Credentials without personal context
     elif p:             return 1  # Art. 4 baseline
     else:               return 0
 

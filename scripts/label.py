@@ -13,7 +13,7 @@ from pathlib import Path
 
 # === CONFIGURATION ===
 INPUT_FILE  = Path(__file__).parent.parent / "data" / "processed" / "privacyrisq_cleaned.xlsx"
-OUTPUT_FILE = Path(__file__).parent.parent / "data" / "processed" / "privacyrisq_labeled.xlsx"
+OUTPUT_FILE = Path(__file__).parent.parent / "data" / "processed" / "privacyrisq_labeled_final.xlsx"
 
 
 # === REGEX PATTERNS ===
@@ -37,6 +37,7 @@ personal_data_patterns = [
     r"\bLinkedIn\s?(profile|account|data)\w*\b",
     r"\buser\s?IDs?\b", r"\baccount\s?IDs?\b",
     r"\bonline\s?identifiers?\b",
+    r"\badvertising\s?(?:identifiers?|IDs?)\b",
 
     # Location Data
     r"\blocation\s?data\b", r"\bGPS\s?locations?\b",
@@ -136,12 +137,9 @@ special_categories_patterns = [
     r"\bDNA\b", r"\bgenetic\s?(data|information|testing)\b",
 
     # Sexual Orientation / Sex Life
-    r"\bsexual\s?orientations?\b", r"\bsexual\b",
-    r"\badult\s?content\b", r"\berotic\s?content\b", r"\berotic\b",
+    r"\bsexual\s?orientations?\b",
     r"\bLGBTQ\w*\b",
     r"\bescort\s?(data|services?|site)\b",
-    r"\bdating\s?(app|site|platform|preferences?|profile)\w*\b",
-    r"\bintimate\b",
 
     # Political Opinions
     r"\bpolitical\s?(views?|opinions?|beliefs?|party|parties|membership|affiliation)\b",
@@ -237,6 +235,18 @@ if __name__ == "__main__":
     print(f"has_personal_data=1:      {df['has_personal_data'].sum():>6}")
     print(f"has_special_categories=1: {df['has_special_categories'].sum():>6}")
     print(f"has_credentials=1:        {df['has_credentials'].sum():>6}")
+
+    # === FILTER: incdidents with at least one datacategory ===
+    before = len(df)
+    df = df[
+        (df['has_personal_data'] == 1) |
+        (df['has_special_categories'] == 1) |
+        (df['has_credentials'] == 1)
+        ].reset_index(drop=True)
+    removed = before - len(df)
+    print(f"\n--- Data Category Filter ---")
+    print(f"Removed {removed} incidents with no data category")
+    print(f"Remaining: {len(df)} incidents")
 
     df.to_excel(OUTPUT_FILE, index=False)
     print(f"\nSaved to: {OUTPUT_FILE}")
