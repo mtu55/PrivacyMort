@@ -1,0 +1,2981 @@
+{
+  "meta": {
+    "source_file": "que_2.xlsx",
+    "sheet": "Tabelle1",
+    "n_responses": 11,
+    "point_estimate_rule": "median inside winning window if consensus (modal band alone if tier 1 only, else the two-band window), else raw median; ordinal items rounded up (ceil)",
+    "consensus_rule": {
+      "min_valid": 5,
+      "modal_only_threshold": 0.5,
+      "window_threshold": 0.7,
+      "reading": "B",
+      "window": "modal band + one adjacent band",
+      "description": "two-tier rule: consensus if modal band alone >= modal_only_threshold, OR modal + adjacent band >= window_threshold",
+      "bimodality_blocks_consensus": true,
+      "bimodal_min_share": 0.25,
+      "tendency_threshold": 0.4
+    },
+    "bands": {
+      "edges": [
+        10.0,
+        25.0,
+        50.0,
+        75.0
+      ],
+      "labels": [
+        "0-10",
+        ">10-25",
+        ">25-50",
+        ">50-75",
+        ">75-100"
+      ],
+      "definition": "half-open intervals, no gaps, no overlaps"
+    },
+    "maturity_scale": {
+      "0": "kein Prozess / keine Wirkung auf keiner Stufe",
+      "1": "geplant",
+      "2": "teilweise umgesetzt",
+      "3": "umgesetzt und dokumentiert",
+      "4": "zusaetzlich mit Wirksamkeitspruefung",
+      "5": "zusaetzlich mit laufender Verbesserung"
+    },
+    "maturity_zero_treatment": "valid substantive category ('no effect at any maturity level'); Q_T = 0 yields a flat zero curve",
+    "gating_rule": "G_i(m_j) = 1 if prerequisite active else r_i (elicited residual effectiveness, NOT binary)"
+  },
+  "controls": {
+    "A8.28": {
+      "validation": {
+        "distribution": {
+          "Ja, eindeutig": 11
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 100.0,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 2,
+        "wording": "teilweise umgesetzt",
+        "consensus": {
+          "n_valid": 11,
+          "median": 2.0,
+          "iqr": 1.0,
+          "min": 2.0,
+          "max": 4.0,
+          "n_missing": 0,
+          "modal_label": "2",
+          "modal_share": 54.5,
+          "window_share": 90.9,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 2.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 0,
+            "1": 0,
+            "2": 6,
+            "3": 4,
+            "4": 1,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 0,
+        "n_zero_reduction_on_both_anchors": 0,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 50.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 50.0,
+          "iqr": 7.5,
+          "min": 30.0,
+          "max": 60.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 90.9,
+          "window_share": 100.0,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 10,
+            ">50-75": 1,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 5,
+          "share_pct": 45.5,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 80.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 80.0,
+          "iqr": 7.5,
+          "min": 55.0,
+          "max": 95.0,
+          "n_missing": 0,
+          "modal_label": ">75-100",
+          "modal_share": 54.5,
+          "window_share": 100.0,
+          "window_labels": [
+            ">50-75",
+            ">75-100"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 80.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 0,
+            ">50-75": 5,
+            ">75-100": 6
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 0,
+          "share_pct": 0.0,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 50.0,
+        "4": 65.0,
+        "5": 80.0
+      },
+      "curve_note": "monotonic"
+    },
+    "A8.16": {
+      "validation": {
+        "distribution": {
+          "Eher ja": 2,
+          "Ja, eindeutig": 9
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 100.0,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 2,
+        "wording": "teilweise umgesetzt",
+        "consensus": {
+          "n_valid": 11,
+          "median": 2.0,
+          "iqr": 0.0,
+          "min": 0.0,
+          "max": 4.0,
+          "n_missing": 0,
+          "modal_label": "2",
+          "modal_share": 72.7,
+          "window_share": 81.8,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 2.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 1,
+            "1": 0,
+            "2": 8,
+            "3": 1,
+            "4": 1,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 1,
+        "n_zero_reduction_on_both_anchors": 2,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 15.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 20.0,
+          "iqr": 20.0,
+          "min": 0.0,
+          "max": 30.0,
+          "n_missing": 0,
+          "modal_label": "0-10",
+          "modal_share": 36.4,
+          "window_share": 72.7,
+          "window_labels": [
+            "0-10",
+            ">10-25"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "window",
+          "consensus_value": 15.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 4,
+            ">10-25": 4,
+            ">25-50": 3,
+            ">50-75": 0,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 0,
+          "share_pct": 0.0,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 25.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 25.0,
+          "iqr": 35.0,
+          "min": 0.0,
+          "max": 80.0,
+          "n_missing": 0,
+          "modal_label": "0-10",
+          "modal_share": 36.4,
+          "window_share": 54.5,
+          "window_labels": [
+            "0-10",
+            ">10-25"
+          ],
+          "spec_consensus": false,
+          "consensus_tier": null,
+          "consensus_value": null,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "tendency",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 4,
+            ">10-25": 2,
+            ">25-50": 2,
+            ">50-75": 2,
+            ">75-100": 1
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 0,
+          "share_pct": 0.0,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 15.0,
+        "4": 20.0,
+        "5": 25.0
+      },
+      "curve_note": "monotonic"
+    },
+    "A8.12": {
+      "validation": {
+        "distribution": {
+          "Ja, eindeutig": 11
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 100.0,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 3,
+        "wording": "umgesetzt und dokumentiert",
+        "consensus": {
+          "n_valid": 11,
+          "median": 3.0,
+          "iqr": 1.0,
+          "min": 2.0,
+          "max": 3.0,
+          "n_missing": 0,
+          "modal_label": "3",
+          "modal_share": 63.6,
+          "window_share": 100.0,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 3.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 0,
+            "1": 0,
+            "2": 4,
+            "3": 7,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 0,
+        "n_zero_reduction_on_both_anchors": 0,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 50.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 50.0,
+          "iqr": 12.5,
+          "min": 25.0,
+          "max": 70.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 81.8,
+          "window_share": 90.9,
+          "window_labels": [
+            ">10-25",
+            ">25-50"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 1,
+            ">25-50": 9,
+            ">50-75": 1,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 6,
+          "share_pct": 54.5,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 80.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 80.0,
+          "iqr": 20.0,
+          "min": 50.0,
+          "max": 99.0,
+          "n_missing": 0,
+          "modal_label": ">75-100",
+          "modal_share": 54.5,
+          "window_share": 90.9,
+          "window_labels": [
+            ">50-75",
+            ">75-100"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 80.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 1,
+            ">50-75": 4,
+            ">75-100": 6
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 1,
+          "share_pct": 9.1,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 50.0,
+        "4": 65.0,
+        "5": 80.0
+      },
+      "curve_note": "monotonic (Q_T >= 3 edge case: effect starts exactly at m=3)"
+    },
+    "A8.24": {
+      "validation": {
+        "distribution": {
+          "Eher ja": 3,
+          "Ja, eindeutig": 8
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 100.0,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 2,
+        "wording": "teilweise umgesetzt",
+        "consensus": {
+          "n_valid": 11,
+          "median": 2.0,
+          "iqr": 0.5,
+          "min": 1.0,
+          "max": 3.0,
+          "n_missing": 0,
+          "modal_label": "2",
+          "modal_share": 63.6,
+          "window_share": 90.9,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 2.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 0,
+            "1": 1,
+            "2": 7,
+            "3": 3,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 0,
+        "n_zero_reduction_on_both_anchors": 0,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 50.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 45.0,
+          "iqr": 17.5,
+          "min": 20.0,
+          "max": 75.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 54.5,
+          "window_share": 81.8,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 2,
+            ">25-50": 6,
+            ">50-75": 3,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 2,
+          "share_pct": 18.2,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 75.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 75.0,
+          "iqr": 10.0,
+          "min": 60.0,
+          "max": 95.0,
+          "n_missing": 0,
+          "modal_label": ">50-75",
+          "modal_share": 63.6,
+          "window_share": 100.0,
+          "window_labels": [
+            ">50-75",
+            ">75-100"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 75.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 0,
+            ">50-75": 7,
+            ">75-100": 4
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 0,
+          "share_pct": 0.0,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 50.0,
+        "4": 62.5,
+        "5": 75.0
+      },
+      "curve_note": "monotonic"
+    },
+    "A5.16": {
+      "validation": {
+        "distribution": {
+          "Ja, eindeutig": 9,
+          "Eher ja": 1,
+          "Unsicher": 1
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 90.9,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 3,
+        "wording": "umgesetzt und dokumentiert",
+        "consensus": {
+          "n_valid": 11,
+          "median": 3.0,
+          "iqr": 1.0,
+          "min": 2.0,
+          "max": 4.0,
+          "n_missing": 0,
+          "modal_label": "2",
+          "modal_share": 45.5,
+          "window_share": 90.9,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "window",
+          "consensus_value": 2.5,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 5,
+            "4": 1,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 0,
+        "n_zero_reduction_on_both_anchors": 0,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 45.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 45.0,
+          "iqr": 17.5,
+          "min": 15.0,
+          "max": 50.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 72.7,
+          "window_share": 100.0,
+          "window_labels": [
+            ">10-25",
+            ">25-50"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 45.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 3,
+            ">25-50": 8,
+            ">50-75": 0,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 5,
+          "share_pct": 45.5,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 60.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 60.0,
+          "iqr": 32.5,
+          "min": 30.0,
+          "max": 95.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 36.4,
+          "window_share": 63.6,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": false,
+          "consensus_tier": null,
+          "consensus_value": null,
+          "bimodal": true,
+          "bimodal_note": "two separate peaks >= 25% (index 2 and 4)",
+          "agreement_label": "dissent",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 4,
+            ">50-75": 3,
+            ">75-100": 4
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 2,
+          "share_pct": 18.2,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 45.0,
+        "4": 52.5,
+        "5": 60.0
+      },
+      "curve_note": "monotonic (Q_T >= 3 edge case: effect starts exactly at m=3)"
+    },
+    "A8.15": {
+      "validation": {
+        "distribution": {
+          "Eher ja": 2,
+          "Ja, eindeutig": 9
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 100.0,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 2,
+        "wording": "teilweise umgesetzt",
+        "consensus": {
+          "n_valid": 11,
+          "median": 2.0,
+          "iqr": 1.0,
+          "min": 0.0,
+          "max": 4.0,
+          "n_missing": 0,
+          "modal_label": "2",
+          "modal_share": 45.5,
+          "window_share": 81.8,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "window",
+          "consensus_value": 2.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 1,
+            "1": 0,
+            "2": 5,
+            "3": 4,
+            "4": 1,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 1,
+        "n_zero_reduction_on_both_anchors": 2,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 10.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 15.0,
+          "iqr": 15.0,
+          "min": 0.0,
+          "max": 50.0,
+          "n_missing": 0,
+          "modal_label": "0-10",
+          "modal_share": 45.5,
+          "window_share": 81.8,
+          "window_labels": [
+            "0-10",
+            ">10-25"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "window",
+          "consensus_value": 10.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 5,
+            ">10-25": 4,
+            ">25-50": 2,
+            ">50-75": 0,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 1,
+          "share_pct": 9.1,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 25.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 25.0,
+          "iqr": 30.0,
+          "min": 0.0,
+          "max": 70.0,
+          "n_missing": 0,
+          "modal_label": "0-10",
+          "modal_share": 36.4,
+          "window_share": 63.6,
+          "window_labels": [
+            "0-10",
+            ">10-25"
+          ],
+          "spec_consensus": false,
+          "consensus_tier": null,
+          "consensus_value": null,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "tendency",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 4,
+            ">10-25": 3,
+            ">25-50": 2,
+            ">50-75": 2,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 1,
+          "share_pct": 9.1,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 10.0,
+        "4": 17.5,
+        "5": 25.0
+      },
+      "curve_note": "monotonic"
+    },
+    "A5.17": {
+      "validation": {
+        "distribution": {
+          "Ja, eindeutig": 9,
+          "Eher ja": 1,
+          "Unsicher": 1
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 90.9,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 2,
+        "wording": "teilweise umgesetzt",
+        "consensus": {
+          "n_valid": 11,
+          "median": 2.0,
+          "iqr": 0.5,
+          "min": 2.0,
+          "max": 4.0,
+          "n_missing": 0,
+          "modal_label": "2",
+          "modal_share": 72.7,
+          "window_share": 90.9,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 2.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 0,
+            "1": 0,
+            "2": 8,
+            "3": 2,
+            "4": 1,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 0,
+        "n_zero_reduction_on_both_anchors": 0,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 30.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 30.0,
+          "iqr": 12.5,
+          "min": 15.0,
+          "max": 50.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 63.6,
+          "window_share": 100.0,
+          "window_labels": [
+            ">10-25",
+            ">25-50"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 30.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 4,
+            ">25-50": 7,
+            ">50-75": 0,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 2,
+          "share_pct": 18.2,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 60.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 60.0,
+          "iqr": 30.0,
+          "min": 45.0,
+          "max": 95.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 45.5,
+          "window_share": 63.6,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": false,
+          "consensus_tier": null,
+          "consensus_value": null,
+          "bimodal": true,
+          "bimodal_note": "two separate peaks >= 25% (index 2 and 4)",
+          "agreement_label": "dissent",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 5,
+            ">50-75": 2,
+            ">75-100": 4
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 4,
+          "share_pct": 36.4,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 30.0,
+        "4": 45.0,
+        "5": 60.0
+      },
+      "curve_note": "monotonic"
+    },
+    "A5.34": {
+      "validation": {
+        "distribution": {
+          "Ja, eindeutig": 10,
+          "Eher ja": 1
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 100.0,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 2,
+        "wording": "teilweise umgesetzt",
+        "consensus": {
+          "n_valid": 11,
+          "median": 3.0,
+          "iqr": 1.5,
+          "min": 2.0,
+          "max": 4.0,
+          "n_missing": 0,
+          "modal_label": "2",
+          "modal_share": 45.5,
+          "window_share": 72.7,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "window",
+          "consensus_value": 2.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 3,
+            "4": 3,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 0,
+        "n_zero_reduction_on_both_anchors": 0,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 25.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 25.0,
+          "iqr": 15.0,
+          "min": 20.0,
+          "max": 50.0,
+          "n_missing": 0,
+          "modal_label": ">10-25",
+          "modal_share": 54.5,
+          "window_share": 100.0,
+          "window_labels": [
+            ">10-25",
+            ">25-50"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 25.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 6,
+            ">25-50": 5,
+            ">50-75": 0,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 2,
+          "share_pct": 18.2,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 50.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 60.0,
+          "iqr": 25.0,
+          "min": 40.0,
+          "max": 95.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 45.5,
+          "window_share": 81.8,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "window",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 5,
+            ">50-75": 4,
+            ">75-100": 2
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 3,
+          "share_pct": 27.3,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 25.0,
+        "4": 37.5,
+        "5": 50.0
+      },
+      "curve_note": "monotonic"
+    },
+    "A8.5": {
+      "validation": {
+        "distribution": {
+          "Ja, eindeutig": 11
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 100.0,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 3,
+        "wording": "umgesetzt und dokumentiert",
+        "consensus": {
+          "n_valid": 11,
+          "median": 3.0,
+          "iqr": 1.0,
+          "min": 2.0,
+          "max": 3.0,
+          "n_missing": 0,
+          "modal_label": "3",
+          "modal_share": 54.5,
+          "window_share": 100.0,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 3.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 0,
+            "1": 0,
+            "2": 5,
+            "3": 6,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 0,
+        "n_zero_reduction_on_both_anchors": 0,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 50.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 50.0,
+          "iqr": 22.5,
+          "min": 20.0,
+          "max": 50.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 72.7,
+          "window_share": 100.0,
+          "window_labels": [
+            ">10-25",
+            ">25-50"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 3,
+            ">25-50": 8,
+            ">50-75": 0,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 6,
+          "share_pct": 54.5,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 70.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 60.0,
+          "iqr": 22.5,
+          "min": 45.0,
+          "max": 95.0,
+          "n_missing": 0,
+          "modal_label": ">50-75",
+          "modal_share": 54.5,
+          "window_share": 81.8,
+          "window_labels": [
+            ">50-75",
+            ">75-100"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 70.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 2,
+            ">50-75": 6,
+            ">75-100": 3
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 1,
+          "share_pct": 9.1,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 50.0,
+        "4": 60.0,
+        "5": 70.0
+      },
+      "curve_note": "monotonic (Q_T >= 3 edge case: effect starts exactly at m=3)"
+    },
+    "A5.15": {
+      "validation": {
+        "distribution": {
+          "Eher ja": 3,
+          "Ja, eindeutig": 8
+        },
+        "n_valid": 11,
+        "n_missing": 0,
+        "confirmation_rate_pct": 100.0,
+        "rejection_count": 0,
+        "scale": [
+          "Ja, eindeutig",
+          "Eher ja",
+          "Unsicher",
+          "Eher nein",
+          "Nein"
+        ]
+      },
+      "q_t": {
+        "point_estimate": 2,
+        "wording": "teilweise umgesetzt",
+        "consensus": {
+          "n_valid": 11,
+          "median": 2.0,
+          "iqr": 1.0,
+          "min": 2.0,
+          "max": 3.0,
+          "n_missing": 0,
+          "modal_label": "2",
+          "modal_share": 54.5,
+          "window_share": 100.0,
+          "window_labels": [
+            "2",
+            "3"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 2.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": "ceil",
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0": 0,
+            "1": 0,
+            "2": 6,
+            "3": 5,
+            "4": 0,
+            "5": 0
+          }
+        },
+        "n_level_zero_votes": 0,
+        "n_zero_reduction_on_both_anchors": 0,
+        "level_zero_note": "level 0 counted as a valid substantive category ('no effect at any maturity level'), not as missing data"
+      },
+      "q_m": {
+        "point_estimate": 40.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 40.0,
+          "iqr": 25.0,
+          "min": 15.0,
+          "max": 50.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 54.5,
+          "window_share": 100.0,
+          "window_labels": [
+            ">10-25",
+            ">25-50"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 40.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 5,
+            ">25-50": 6,
+            ">50-75": 0,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 3,
+          "share_pct": 27.3,
+          "marker": 50.0
+        }
+      },
+      "q_c": {
+        "point_estimate": 60.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 70.0,
+          "iqr": 15.0,
+          "min": 30.0,
+          "max": 95.0,
+          "n_missing": 0,
+          "modal_label": ">50-75",
+          "modal_share": 63.6,
+          "window_share": 81.8,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 60.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 0,
+            ">25-50": 2,
+            ">50-75": 7,
+            ">75-100": 2
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 1,
+          "share_pct": 9.1,
+          "marker": 50.0
+        }
+      },
+      "curve_pct": {
+        "1": 0.0,
+        "2": 0.0,
+        "3": 40.0,
+        "4": 50.0,
+        "5": 60.0
+      },
+      "curve_note": "monotonic"
+    }
+  },
+  "dependencies": {
+    "A5.34 + A5.12": {
+      "dependent": "A5.34",
+      "prerequisites": [
+        "A5.12"
+      ],
+      "kind": "atomic",
+      "dependency_type_distribution": {
+        "Teilvoraussetzung": 9,
+        "Harte Voraussetzung": 1,
+        "Wirkungsverstärker": 1
+      },
+      "dependency_type_n_valid": 11,
+      "dependency_type_n_missing": 0,
+      "dependency_type_note": "descriptive only; does not enter the gating formula; non-assessable answers excluded, consistent with percentage items",
+      "residual_effectiveness": {
+        "point_estimate_pct": 50.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 50.0,
+          "iqr": 10.0,
+          "min": 25.0,
+          "max": 75.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 54.5,
+          "window_share": 81.8,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 2,
+            ">25-50": 6,
+            ">50-75": 3,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 6,
+          "share_pct": 54.5,
+          "marker": 50.0
+        }
+      },
+      "gating_rule": "G_i(m_j)=1 if active else r_i (residual effectiveness)",
+      "gated_curve_pct": {
+        "prerequisite_active": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 25.0,
+          "4": 37.5,
+          "5": 50.0
+        },
+        "prerequisite_inactive": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 12.5,
+          "4": 18.8,
+          "5": 25.0
+        }
+      }
+    },
+    "A5.34 + A5.13": {
+      "dependent": "A5.34",
+      "prerequisites": [
+        "A5.13"
+      ],
+      "kind": "atomic",
+      "dependency_type_distribution": {
+        "Wirkungsverstärker": 5,
+        "Teilvoraussetzung": 5,
+        "Keine": 1
+      },
+      "dependency_type_n_valid": 11,
+      "dependency_type_n_missing": 0,
+      "dependency_type_note": "descriptive only; does not enter the gating formula; non-assessable answers excluded, consistent with percentage items",
+      "residual_effectiveness": {
+        "point_estimate_pct": 75.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 75.0,
+          "iqr": 27.5,
+          "min": 25.0,
+          "max": 100.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 36.4,
+          "window_share": 63.6,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": false,
+          "consensus_tier": null,
+          "consensus_value": null,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "tendency",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 1,
+            ">25-50": 4,
+            ">50-75": 3,
+            ">75-100": 3
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 4,
+          "share_pct": 36.4,
+          "marker": 50.0
+        }
+      },
+      "gating_rule": "G_i(m_j)=1 if active else r_i (residual effectiveness)",
+      "gated_curve_pct": {
+        "prerequisite_active": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 25.0,
+          "4": 37.5,
+          "5": 50.0
+        },
+        "prerequisite_inactive": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 18.8,
+          "4": 28.1,
+          "5": 37.5
+        }
+      }
+    },
+    "A5.34 + A5.12 UND A5.13": {
+      "dependent": "A5.34",
+      "prerequisites": [
+        "A5.12",
+        "A5.13"
+      ],
+      "kind": "composite",
+      "dependency_type_distribution": {
+        "Teilvoraussetzung": 9,
+        "Wirkungsverstärker": 1
+      },
+      "dependency_type_n_valid": 10,
+      "dependency_type_n_missing": 1,
+      "dependency_type_note": "descriptive only; does not enter the gating formula; non-assessable answers excluded, consistent with percentage items",
+      "residual_effectiveness": {
+        "point_estimate_pct": 50.0,
+        "consensus": {
+          "n_valid": 10,
+          "median": 50.0,
+          "iqr": 7.5,
+          "min": 25.0,
+          "max": 75.0,
+          "n_missing": 1,
+          "modal_label": ">25-50",
+          "modal_share": 70.0,
+          "window_share": 90.0,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 1,
+            ">25-50": 7,
+            ">50-75": 2,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 10,
+          "n_at_marker": 5,
+          "share_pct": 50.0,
+          "marker": 50.0
+        }
+      },
+      "gating_rule": "G_i(m_j)=1 if active else r_i (residual effectiveness)",
+      "gated_curve_pct": {
+        "prerequisite_active": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 25.0,
+          "4": 37.5,
+          "5": 50.0
+        },
+        "prerequisite_inactive": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 12.5,
+          "4": 18.8,
+          "5": 25.0
+        }
+      },
+      "components": [
+        "A5.34 + A5.12",
+        "A5.34 + A5.13"
+      ],
+      "components_complete": true,
+      "rule_comparison": {
+        "comparable": true,
+        "n_observations": 10,
+        "mae_minimum_rule": 7.5,
+        "mae_product_rule": 14.9,
+        "closer_rule": "minimum",
+        "bound_violations": 2,
+        "detail": [
+          {
+            "components_pct": [
+              50.0,
+              25.0
+            ],
+            "observed_pct": 50.0,
+            "minimum_rule_pct": 25.0,
+            "product_rule_pct": 12.5
+          },
+          {
+            "components_pct": [
+              75.0,
+              75.0
+            ],
+            "observed_pct": 75.0,
+            "minimum_rule_pct": 75.0,
+            "product_rule_pct": 56.2
+          },
+          {
+            "components_pct": [
+              75.0,
+              80.0
+            ],
+            "observed_pct": 50.0,
+            "minimum_rule_pct": 75.0,
+            "product_rule_pct": 60.0
+          },
+          {
+            "components_pct": [
+              50.0,
+              80.0
+            ],
+            "observed_pct": 50.0,
+            "minimum_rule_pct": 50.0,
+            "product_rule_pct": 40.0
+          },
+          {
+            "components_pct": [
+              50.0,
+              75.0
+            ],
+            "observed_pct": 40.0,
+            "minimum_rule_pct": 50.0,
+            "product_rule_pct": 37.5
+          },
+          {
+            "components_pct": [
+              50.0,
+              50.0
+            ],
+            "observed_pct": 50.0,
+            "minimum_rule_pct": 50.0,
+            "product_rule_pct": 25.0
+          },
+          {
+            "components_pct": [
+              25.0,
+              50.0
+            ],
+            "observed_pct": 25.0,
+            "minimum_rule_pct": 25.0,
+            "product_rule_pct": 12.5
+          },
+          {
+            "components_pct": [
+              50.0,
+              50.0
+            ],
+            "observed_pct": 50.0,
+            "minimum_rule_pct": 50.0,
+            "product_rule_pct": 25.0
+          },
+          {
+            "components_pct": [
+              50.0,
+              75.0
+            ],
+            "observed_pct": 40.0,
+            "minimum_rule_pct": 50.0,
+            "product_rule_pct": 37.5
+          },
+          {
+            "components_pct": [
+              70.0,
+              100.0
+            ],
+            "observed_pct": 75.0,
+            "minimum_rule_pct": 70.0,
+            "product_rule_pct": 70.0
+          }
+        ]
+      }
+    },
+    "A5.34 + A5.17": {
+      "dependent": "A5.34",
+      "prerequisites": [
+        "A5.17"
+      ],
+      "kind": "atomic",
+      "dependency_type_distribution": {
+        "Teilvoraussetzung": 2,
+        "Wirkungsverstärker": 8,
+        "Keine": 1
+      },
+      "dependency_type_n_valid": 11,
+      "dependency_type_n_missing": 0,
+      "dependency_type_note": "descriptive only; does not enter the gating formula; non-assessable answers excluded, consistent with percentage items",
+      "residual_effectiveness": {
+        "point_estimate_pct": 50.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 50.0,
+          "iqr": 12.5,
+          "min": 25.0,
+          "max": 100.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 54.5,
+          "window_share": 72.7,
+          "window_labels": [
+            ">10-25",
+            ">25-50"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 2,
+            ">25-50": 6,
+            ">50-75": 2,
+            ">75-100": 1
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 6,
+          "share_pct": 54.5,
+          "marker": 50.0
+        }
+      },
+      "gating_rule": "G_i(m_j)=1 if active else r_i (residual effectiveness)",
+      "gated_curve_pct": {
+        "prerequisite_active": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 25.0,
+          "4": 37.5,
+          "5": 50.0
+        },
+        "prerequisite_inactive": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 12.5,
+          "4": 18.8,
+          "5": 25.0
+        }
+      }
+    },
+    "A5.34 + A5.26": {
+      "dependent": "A5.34",
+      "prerequisites": [
+        "A5.26"
+      ],
+      "kind": "atomic",
+      "dependency_type_distribution": {
+        "Wirkungsverstärker": 7,
+        "Teilvoraussetzung": 4
+      },
+      "dependency_type_n_valid": 11,
+      "dependency_type_n_missing": 0,
+      "dependency_type_note": "descriptive only; does not enter the gating formula; non-assessable answers excluded, consistent with percentage items",
+      "residual_effectiveness": {
+        "point_estimate_pct": 50.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 50.0,
+          "iqr": 17.5,
+          "min": 25.0,
+          "max": 80.0,
+          "n_missing": 0,
+          "modal_label": ">25-50",
+          "modal_share": 45.5,
+          "window_share": 72.7,
+          "window_labels": [
+            ">25-50",
+            ">50-75"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "window",
+          "consensus_value": 50.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 0,
+            ">10-25": 2,
+            ">25-50": 5,
+            ">50-75": 3,
+            ">75-100": 1
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 5,
+          "share_pct": 45.5,
+          "marker": 50.0
+        }
+      },
+      "gating_rule": "G_i(m_j)=1 if active else r_i (residual effectiveness)",
+      "gated_curve_pct": {
+        "prerequisite_active": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 25.0,
+          "4": 37.5,
+          "5": 50.0
+        },
+        "prerequisite_inactive": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 12.5,
+          "4": 18.8,
+          "5": 25.0
+        }
+      }
+    },
+    "A8.16 + A8.15": {
+      "dependent": "A8.16",
+      "prerequisites": [
+        "A8.15"
+      ],
+      "kind": "atomic",
+      "dependency_type_distribution": {
+        "Harte Voraussetzung": 10,
+        "Teilvoraussetzung": 1
+      },
+      "dependency_type_n_valid": 11,
+      "dependency_type_n_missing": 0,
+      "dependency_type_note": "descriptive only; does not enter the gating formula; non-assessable answers excluded, consistent with percentage items",
+      "residual_effectiveness": {
+        "point_estimate_pct": 10.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 10.0,
+          "iqr": 10.0,
+          "min": 0.0,
+          "max": 50.0,
+          "n_missing": 0,
+          "modal_label": "0-10",
+          "modal_share": 72.7,
+          "window_share": 81.8,
+          "window_labels": [
+            "0-10",
+            ">10-25"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 10.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 8,
+            ">10-25": 1,
+            ">25-50": 2,
+            ">50-75": 0,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 1,
+          "share_pct": 9.1,
+          "marker": 50.0
+        }
+      },
+      "gating_rule": "G_i(m_j)=1 if active else r_i (residual effectiveness)",
+      "gated_curve_pct": {
+        "prerequisite_active": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 15.0,
+          "4": 20.0,
+          "5": 25.0
+        },
+        "prerequisite_inactive": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 1.5,
+          "4": 2.0,
+          "5": 2.5
+        }
+      }
+    },
+    "A8.16 + A8.15 UND A5.25": {
+      "dependent": "A8.16",
+      "prerequisites": [
+        "A8.15",
+        "A5.25"
+      ],
+      "kind": "composite",
+      "dependency_type_distribution": {
+        "Harte Voraussetzung": 9,
+        "Teilvoraussetzung": 2
+      },
+      "dependency_type_n_valid": 11,
+      "dependency_type_n_missing": 0,
+      "dependency_type_note": "descriptive only; does not enter the gating formula; non-assessable answers excluded, consistent with percentage items",
+      "residual_effectiveness": {
+        "point_estimate_pct": 10.0,
+        "consensus": {
+          "n_valid": 11,
+          "median": 10.0,
+          "iqr": 10.0,
+          "min": 0.0,
+          "max": 75.0,
+          "n_missing": 0,
+          "modal_label": "0-10",
+          "modal_share": 72.7,
+          "window_share": 81.8,
+          "window_labels": [
+            "0-10",
+            ">10-25"
+          ],
+          "spec_consensus": true,
+          "consensus_tier": "modal",
+          "consensus_value": 10.0,
+          "bimodal": false,
+          "bimodal_note": "",
+          "agreement_label": "consensus",
+          "integer_rounding": null,
+          "consensus_reading": "B",
+          "modal_only_threshold": 0.5,
+          "window_threshold": 0.7,
+          "distribution": {
+            "0-10": 8,
+            ">10-25": 1,
+            ">25-50": 1,
+            ">50-75": 1,
+            ">75-100": 0
+          }
+        },
+        "round_number_anchoring": {
+          "n_valid": 11,
+          "n_at_marker": 0,
+          "share_pct": 0.0,
+          "marker": 50.0
+        }
+      },
+      "gating_rule": "G_i(m_j)=1 if active else r_i (residual effectiveness)",
+      "gated_curve_pct": {
+        "prerequisite_active": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 15.0,
+          "4": 20.0,
+          "5": 25.0
+        },
+        "prerequisite_inactive": {
+          "1": 0.0,
+          "2": 0.0,
+          "3": 1.5,
+          "4": 2.0,
+          "5": 2.5
+        }
+      },
+      "components": [
+        "A8.16 + A8.15"
+      ],
+      "components_complete": false,
+      "rule_comparison": {
+        "comparable": false,
+        "reason": "not all single-prerequisite failures were elicited individually"
+      }
+    }
+  },
+  "context": {
+    "Dienstleister betreibt Umgebung Einschätzung": {
+      "n_valid": 11,
+      "distribution": {
+        "Nicht pauschal beurteilbar": 9,
+        "Nein, meine Einschätzung bleibt gleich": 1,
+        "Ja, im Durschschnitt schwächer": 1
+      },
+      "note": "descriptive only, no banding or consensus rule applied (panel consensus itself is 'not assessable in general')"
+    },
+    "Dienstleister betreibt Umgebung Prozent": {
+      "n_valid": 11,
+      "distribution": {
+        "Nicht pauschal beurteilbar": 9,
+        "Nein, meine Einschätzung bleibt gleich": 1,
+        "Spürbar (10-25)": 1
+      },
+      "note": "descriptive only, no banding or consensus rule applied (panel consensus itself is 'not assessable in general')"
+    },
+    "Umgebung unbekannt Einschätzung": {
+      "n_valid": 11,
+      "distribution": {
+        "Ja, im Durchschnitt eher schwächer": 2,
+        "Nicht pauschal beurteilbar": 9
+      },
+      "note": "descriptive only, no banding or consensus rule applied (panel consensus itself is 'not assessable in general')"
+    },
+    "DiUmgebung unbekannt  Prozent": {
+      "n_valid": 11,
+      "distribution": {
+        "Spürbar (10-25)": 2,
+        "Nicht pauschal beurteilbar": 9
+      },
+      "note": "descriptive only, no banding or consensus rule applied (panel consensus itself is 'not assessable in general')"
+    }
+  },
+  "warnings": [],
+  "validation": {
+    "band_definition_selftest": {
+      "ok": true,
+      "problems": [],
+      "probe_mapping": {
+        "0.0": "0-10",
+        "10.0": "0-10",
+        "10.4": ">10-25",
+        "10.5": ">10-25",
+        "24.9": ">10-25",
+        "25.0": ">10-25",
+        "25.1": ">25-50",
+        "50.0": ">25-50",
+        "50.5": ">50-75",
+        "75.0": ">50-75",
+        "75.5": ">75-100",
+        "100.0": ">75-100"
+      }
+    },
+    "icc_2k": {
+      "q_t": {
+        "icc": 0.333,
+        "ci_lower": -0.15,
+        "ci_upper": 0.851,
+        "n_targets": 10,
+        "k_raters": 11,
+        "n_raters_dropped_for_missingness": 0
+      },
+      "q_m": {
+        "icc": 0.879,
+        "ci_lower": 0.758,
+        "ci_upper": 0.969,
+        "n_targets": 10,
+        "k_raters": 11,
+        "n_raters_dropped_for_missingness": 0
+      },
+      "q_c": {
+        "icc": 0.909,
+        "ci_lower": 0.831,
+        "ci_upper": 0.978,
+        "n_targets": 10,
+        "k_raters": 11,
+        "n_raters_dropped_for_missingness": 0
+      },
+      "pooled_summary_note": "Pooling ICC(2,k) across Q_T, Q_M, Q_C into a single number is deliberately not reported: the three anchors differ substantially in target variance (Q_T shows range restriction across controls, most raters converge on level 2), which would make an unweighted average misleading. Reported separately per anchor instead. Maturity level 0 is now a valid category, so no rater is dropped for answering 0."
+    },
+    "fleiss_kappa_dependency_type": {
+      "kappa": 0.429,
+      "n_items": 7,
+      "categories": [
+        "Harte Voraussetzung",
+        "Keine",
+        "Teilvoraussetzung",
+        "Wirkungsverstärker"
+      ],
+      "p_bar": 0.618,
+      "p_e": 0.331
+    },
+    "agreement_classification": {
+      "A8.28_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 90.9,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.28_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 90.9,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.28_Q_C": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">75-100",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.16_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 72.7,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.16_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "0-10",
+        "modal_share_pct": 36.4,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 72.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.16_Q_C": {
+        "n_valid": 11,
+        "label": "tendency",
+        "modal_label": "0-10",
+        "modal_share_pct": 36.4,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 54.5,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": null,
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.12_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "3",
+        "modal_share_pct": 63.6,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.12_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 81.8,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 90.9,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.12_Q_C": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">75-100",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 90.9,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.24_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 63.6,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 90.9,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.24_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.24_Q_C": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">50-75",
+        "modal_share_pct": 63.6,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.16_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 45.5,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 90.9,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.16_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 72.7,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.16_Q_C": {
+        "n_valid": 11,
+        "label": "dissent",
+        "modal_label": ">25-50",
+        "modal_share_pct": 36.4,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 63.6,
+        "bimodal": true,
+        "bimodal_note": "two separate peaks >= 25% (index 2 and 4)",
+        "consensus_tier": null,
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.15_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 45.5,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.15_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "0-10",
+        "modal_share_pct": 45.5,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.15_Q_C": {
+        "n_valid": 11,
+        "label": "tendency",
+        "modal_label": "0-10",
+        "modal_share_pct": 36.4,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 63.6,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": null,
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.17_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 72.7,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 90.9,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.17_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 63.6,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.17_Q_C": {
+        "n_valid": 11,
+        "label": "dissent",
+        "modal_label": ">25-50",
+        "modal_share_pct": 45.5,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 63.6,
+        "bimodal": true,
+        "bimodal_note": "two separate peaks >= 25% (index 2 and 4)",
+        "consensus_tier": null,
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 45.5,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 72.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">10-25",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34_Q_C": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 45.5,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.5_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "3",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.5_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 72.7,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.5_Q_C": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">50-75",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.15_Q_T": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.15_Q_M": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.15_Q_C": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">50-75",
+        "modal_share_pct": 63.6,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34 + A5.12_residual": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34 + A5.13_residual": {
+        "n_valid": 11,
+        "label": "tendency",
+        "modal_label": ">25-50",
+        "modal_share_pct": 36.4,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 63.6,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": null,
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34 + A5.12 UND A5.13_residual": {
+        "n_valid": 10,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 70.0,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 90.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34 + A5.17_residual": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 54.5,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 72.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34 + A5.26_residual": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 45.5,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 72.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.16 + A8.15_residual": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "0-10",
+        "modal_share_pct": 72.7,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.16 + A8.15 UND A5.25_residual": {
+        "n_valid": 11,
+        "label": "consensus",
+        "modal_label": "0-10",
+        "modal_share_pct": 72.7,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 81.8,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      }
+    },
+    "no_effect_votes": {
+      "n_votes": 4,
+      "n_coherent": 2,
+      "n_incoherent": 2,
+      "detail": [
+        {
+          "control": "A8.16",
+          "row": 1,
+          "level": 2,
+          "reduction_3_pct": 0.0,
+          "reduction_5_pct": 0.0,
+          "coherent": false
+        },
+        {
+          "control": "A8.16",
+          "row": 4,
+          "level": 0,
+          "reduction_3_pct": 0.0,
+          "reduction_5_pct": 0.0,
+          "coherent": true
+        },
+        {
+          "control": "A8.15",
+          "row": 1,
+          "level": 2,
+          "reduction_3_pct": 0.0,
+          "reduction_5_pct": 0.0,
+          "coherent": false
+        },
+        {
+          "control": "A8.15",
+          "row": 4,
+          "level": 0,
+          "reduction_3_pct": 0.0,
+          "reduction_5_pct": 0.0,
+          "coherent": true
+        }
+      ],
+      "note": "level 0 is treated as a substantive category, not as missing data; incoherent rows are reported for the paper, not silently corrected"
+    },
+    "gwet_appendix": {
+      "AC2_Q_T_levels": 0.75,
+      "AC2_Q_M_bands": 0.756,
+      "AC2_Q_C_bands": 0.503,
+      "AC2_residual_bands": 0.513,
+      "AC1_dependency_type": 0.509,
+      "note": "appendix only, descriptive; no true value exists in a Delphi panel, so this is not interpreted as a reliability criterion"
+    },
+    "monotonicity": {
+      "q_m_le_q_c_violations": [
+        {
+          "control": "A5.16",
+          "row": 10,
+          "q_m_pct": 45.0,
+          "q_c_pct": 40.0
+        }
+      ],
+      "curve_violations": [],
+      "flat_zero_curves": [],
+      "onset_jumps": [
+        {
+          "control": "A8.28",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 50.0,
+          "delta_pct": 50.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.16",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 15.0,
+          "delta_pct": 15.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.12",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 50.0,
+          "delta_pct": 50.0,
+          "q_t": 3,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.24",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 50.0,
+          "delta_pct": 50.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A5.16",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 45.0,
+          "delta_pct": 45.0,
+          "q_t": 3,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.15",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 10.0,
+          "delta_pct": 10.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A5.17",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 30.0,
+          "delta_pct": 30.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A5.34",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 25.0,
+          "delta_pct": 25.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.5",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 50.0,
+          "delta_pct": 50.0,
+          "q_t": 3,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A5.15",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 40.0,
+          "delta_pct": 40.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        }
+      ],
+      "curve_jump_warnings": []
+    },
+    "excluded_measures": {
+      "krippendorffs_alpha": "not used (prevalence paradox under skewed marginals in this dataset)",
+      "van_der_eijk_agreement_a": "not used (unvalidated beyond edge-case self-tests)",
+      "kendalls_w": "not used (no que_1.xlsx rater-level ranking data in scope of this script)"
+    }
+  }
+}

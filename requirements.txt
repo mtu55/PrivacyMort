@@ -1,0 +1,19 @@
+# PrivacyMort analysis pipeline
+# Verified with Python 3.14.7 on macOS (darwin 25.6.0).
+#
+#   python3 -m venv .venv
+#   source .venv/bin/activate
+#   pip install -r requirements.txt
+#
+# Versions are pinned so the reported figures stay reproducible.
+
+pandas==3.0.5      # dataframes; core of every script
+openpyxl==3.1.5    # .xlsx read/write engine used by pandas
+scipy==1.18.0      # spearmanr / kendalltau in the robustness checks
+numpy==2.5.2       # fold splitting in kfold_validation.py
+
+jupyter==1.1.1     # notebook interface
+
+# Installs the privacymort package in editable mode, so `import privacymort`
+# resolves from any directory. Required by every script in scripts/.
+-e .

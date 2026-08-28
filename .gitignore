@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Excel lock files (created when a workbook is open)
+~$*
+
+# IDE
+.idea/
+.vscode/
+
+# macOS
+.DS_Store

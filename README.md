@@ -1,102 +1,247 @@
 # PrivacyMort
 
-Empirically calibrated privacy risk metric based on 2,037 real-world privacy incidents. Derives baseline risk scores per scenario from  labeled incident data using GDPR data categories and LINDDUN threat  classifications.
+PrivacyMort is an empirically calibrated privacy risk metric based on real-world privacy incidents. It constructs privacy risk scenarios from incident data and estimates baseline and residual risk.
 
----
+## Overview
+
+The workflow consists of four main phases:
+
+1. Corpus construction and labeling
+2. Asset classification and scenario generation
+3. Control-effectiveness elicitation
+4. Baseline and residual risk estimation
 
 ## Data Pipeline
-privacyrisq_export.csv (N = 8,464) │ │ Manual filtering (see below) ▼ privacyrisq_cleaned.xlsx (N = 2,037) │ │ scripts/label.py ▼ privacyrisq_labeled.xlsx (N = 2,037, with data category flags) │ │ scripts/scenarios.py ▼ mort_scenarios.xlsx (scenario-level baseline risk scores)
 
-### Filtering Steps (raw → cleaned)
+```text
+privacyrisq_export.csv
+        │
+        │ Manual cleaning and filtering
+        ▼
+privacyrisq_cleaned.xlsx
+        │
+        │ scripts/label.py
+        ▼
+privacyrisq_labeled.xlsx
+        │
+        │ scripts/assets.py
+        ▼
+privacyrisq_assets.xlsx
+        │
+        │ scripts/scenarios.py
+        ▼
+mort_scenarios.xlsx
+        │
+        │ scripts/delphi_sample.py
+        ▼
+Delphi example scenarios
+```
 
-| Step | Action                                                                        | Remaining |
-|------|-------------------------------------------------------------------------------|-----------|
-| 1    | Remove GDPR enforcement/fine records (regulatory responses, not incidents)    | 3,798     |
-| 2    | Remove incidents without LINDDUN mapping (not classified as privacy incident) | 3,389     |
-| 3    | Remove incidents without personal data involvement (DDoS, defacements)        | 2,037     |
-| 4    | Add labels following the data categories of the GDPR and remove 0             | 2,035     |
+## Main Workflow
 
-`privacyrisq_cleaned.xlsx` is the stable input for all subsequent scripts.
+Run the scripts in the following order.
+### 1. Data labeling
 
----
+Labels the 2,037 cleaned incidents and retains 2,035 incidents with at least one detected data category.
 
-## Scripts
+- **Input:** `data/processed/privacyrisq_cleaned.xlsx`
+- **Output:** `data/processed/privacyrisq_labeled_final.xlsx`
 
-### `label.py`
-Applies keyword-based regex labeling to classify each incident by
-GDPR data category. Derives three binary flags per incident:
-
-| Flag                     | Definition                     |
-|--------------------------|--------------------------------|
-| `has_personal_data`      | GDPR Art. 4(1) categories      |
-| `has_special_categories` | GDPR Art. 9 categories         |
-| `has_credentials`        | Authentication and access data |
-
-Keywords use word-boundary regex (`\b`) to prevent partial matches.
-Full taxonomy is documented inline in the script.
-
-| Step | Action                                                                        | Remaining |
-|------|-------------------------------------------------------------------------------|-----------|
-| 4    | Add labels following the data categories of the GDPR and remove 0             | 2,035     |
-
-**Run:**
-
+```bash
 python scripts/label.py
+```
 
----
-### `scenarios.py`
-Constructs privacy risk scenarios as triples:
-s = (AssetType, LINDDUN combination, DataCategory)
+### 2. Asset classification
 
-Computes per scenario:
-- `count` – unique incidents
-- `likelihood` – count / N (N = 2,037)
-- `avg_severity` – mean severity score (1–4, GDPR-grounded)
-- `baseline_risk` – likelihood × avg_severity
+Classifies incidents by technical asset, organizational context, and target type.
 
-### `asssets.py`
+- **Input:** `data/processed/privacyrisq_labeled_final.xlsx`
+- **Output:** `data/processed/privacyrisq_assets_final.xlsx`
 
+```bash
+python scripts/assets.py
+```
 
-**Run:**
-python scripts/scenarios_combined.py
+### 3. Scenario construction
 
----
+Constructs risk scenarios and calculates likelihood, severity, and baseline risk.
 
-## Scripts for evaluation 
+- **Input:** `data/processed/privacyrisq_assets_final.xlsx`
+- **Output:** `results/mort_scenarios_final.xlsx`
 
-### `sensitivity_analysis.py`
-Evaluates ranking stability across:
-- Minimum incident thresholds: n >= 3, 5, 10, 15
-- Severity weightings: current, exponential, compressed, flat, linear high
-
-Reports Spearman rho for all comparisons.
-
-**Run:**
-python scripts/sensitivity_analysis.py
----
-
-### `explore_keywords.py`
-Identifies frequent data-related terms in unlabeled incidents.
-Use this to iteratively extend the keyword taxonomy in `label.py`.
-
-**Run:**
-python scripts/explore_keywords.py
----
-
-### `description_quality.py`
-Measures data completeness per year across all relevant fields
-(Asset Type, LINDDUN, Threat Actor, Data Protection State,
-Techniques Used). Runs on the raw export.
-
-**Run:**
-python scripts/description_quality.py
-
----
-
-## Requirements and installation
-pip install pandas 
-pip install openpyxl 
-pip install scipyv
+```bash
+python scripts/scenarios_final.py
+```
 
 
+## Delphi
 
+Run the Delphi scripts from the project root.
+
+### Scenario selection
+
+Selects three anchor scenarios from the core scenario family using maximum variation sampling. The scenarios share the same LINDDUN and data-category characteristics but vary by technical asset type. Within each asset group, the incident containing the largest number of detected data fields is selected as the representative case.
+
+- **Method:** Maximum Variation Sampling according to Patton (1990)
+- **Input:** `data/processed/privacyrisq_assets_final.xlsx`
+- **Outputs:**
+  - `results/delphi_scenario_selection.csv`
+  - `results/delphi_scenario_selection.txt`
+
+```bash
+python scripts/delphi_sample.py
+```
+
+### Delphi Round 1
+
+Evaluates the first Delphi round. The ten ranked control selections are scored from 10 points for rank 1 to 1 point for rank 10. Dependency statements are normalized, parsed, and counted without weighting.
+
+- **Input:** `scripts/que_1.xlsx`, sheet `answer`
+- **Output:** `scripts/Delphi_round_1_results.md`
+
+```bash
+python scripts/delphi_1.py
+```
+
+### Delphi Round 2
+
+Builds the final quantitative model from the second Delphi round. The analysis covers control confirmation, maturity thresholds, effectiveness estimates, consensus, dependency effects, effectiveness curves, composite dependency rules, and contextual responses.
+
+The consensus assessment uses a predefined two-tier rule:
+
+- At least five valid responses are required.
+- Consensus is reached if the modal response band contains at least 50% of valid responses.
+- Alternatively, the modal band and its strongest adjacent band must contain at least 70% of valid responses.
+- Detected bimodality prevents consensus.
+- Maturity level `0` is treated as a valid substantive response indicating no effect at any maturity level.
+
+- **Input:** `scripts/que_2.xlsx`, sheet `Tabelle1`
+- **Outputs:**
+  - `scripts/delphi2_results.json`
+  - `scripts/delphi2_results.md`
+
+```bash
+python scripts/delphi_results.builder.py
+```
+
+## Validation
+
+Run the validation scripts from the project root.
+
+### Corpus Validation
+
+#### Description quality
+
+Checks the completeness of relevant incident fields over time.
+
+- **Input:** `data/raw/privacyrisq_export.csv`
+- **Output:** `results/description_quality.xlsx`
+
+```bash
+python scripts/quality_check/description_quality.py
+```
+
+#### Keyword exploration
+
+Identifies potentially relevant terms in incidents without a detected data category.
+
+- **Input:** `data/processed/privacyrisq_labeled.xlsx`
+- **Output:** Console output
+
+```bash
+python scripts/quality_check/explore_keywords.py
+```
+
+#### Advertising identifier patterns
+
+Tests candidate regular expressions for advertising identifiers and displays example matches.
+
+- **Input:** `data/processed/privacyrisq_cleaned.xlsx`
+- **Output:** Console output
+
+```bash
+python scripts/quality_check/adid_pattern.py
+```
+
+#### Label precision sample
+
+Creates a stratified sample for manually checking the precision of the data-category labels. After completing `true_label`, run the script again to calculate precision and Wilson confidence intervals.
+
+- **Input:** `data/processed/privacyrisq_labeled_final.xlsx`
+- **Output:** `scripts/quality_check/precision_sample.xlsx`
+
+```bash
+python scripts/quality_check/sampleCheck.py
+```
+
+#### Database stability
+
+Examines source heterogeneity, LINDDUN prevalence, and scenario-ranking stability across data sources.
+
+- **Input:** `data/processed/privacyrisq_assets_final.xlsx`
+- **Output:** `scripts/quality_check/source_diagnostics.xlsx`
+
+```bash
+python scripts/quality_check/databaseStability.py
+```
+
+### Metric Validation
+
+#### Severity-scale check
+
+Tests whether alternative severity scales change the scenario ranking.
+
+- **Input:** Asset-classified incident data
+- **Output:** Severity-sensitivity results as an Excel file
+
+```bash
+python scripts/quality_check/severity_scale.py
+```
+
+#### Sensitivity analysis
+
+Evaluates ranking stability across alternative scenario thresholds and severity weightings.
+
+- **Input:** `results/mort_scenarios_final.xlsx`
+- **Output:** `results/sensitivity_analysis.xlsx`
+- **Additional output:** `results/severity_sens_table.tex`
+
+```bash
+python scripts/quality_check/sensitivity_analysis.py
+```
+
+#### K-fold validation
+
+Tests the stability of the scenario ranking across five incident-level folds.
+
+- **Input:** `data/processed/privacyrisq_assets_final.xlsx`
+- **Output:** `results/kfold_validation_results.xlsx`
+
+```bash
+python scripts/quality_check/kfold_validation.py
+```
+
+### Delphi Validation
+
+#### Delphi validation checks
+
+Checks consensus, agreement, coherence, and monotonicity for Delphi Round 2.
+
+- **Input:** `que_2.xlsx` and `delphi2_results.json`
+- **Output:** Updated `delphi2_results.json`
+- **Additional output:** `delphi2_validation_results.md`
+
+```bash
+python scripts/quality_check/delphi2_validation_checks.py
+```
+
+#### Delphi reliability
+
+Calculates ICC(2,k) and Gwet’s AC2 for Delphi Round 2.
+
+- **Input:** `que_2.xlsx`
+- **Output:** `delphi2_reliability.md`
+
+```bash
+python scripts/quality_check/delphi2_reliability.py
+```
