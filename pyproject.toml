@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "privacymort"
+version = "1.0.0"
+description = "Empirically calibrated privacy risk metric derived from real-world privacy incidents"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas",
+    "openpyxl",
+    "scipy",
+    "numpy",
+    "pingouin",
+]
+
+[tool.setuptools]
+# Only the library is packaged. scripts/ and delphi/ are entry points that
+# import it, not importable packages themselves.
+packages = ["privacymort"]

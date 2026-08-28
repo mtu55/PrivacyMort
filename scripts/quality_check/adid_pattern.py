@@ -3,10 +3,9 @@
 # Zeigt Trefferzahlen + Beispiel-Incidents direkt in der Kommandozeile.
 
 import pandas as pd
-import re
 from pathlib import Path
 
-INPUT_FILE = Path("/Users/mev61324/IdeaProjects/PrivacyMort/data/processed/privacyrisq_cleaned.xlsx")
+INPUT_FILE = Path(__file__).parent.parent.parent / "data" / "processed" / "privacyrisq_cleaned.xlsx"
 
 # Kandidaten: sichere (SAFE) vs. riskante (RISK)
 CANDIDATES = {

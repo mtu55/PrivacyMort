@@ -12,8 +12,8 @@ import pandas as pd
 from pathlib import Path
 
 # === CONFIGURATION ===
-INPUT_FILE  = Path(__file__).parent.parent / "data" / "raw" / "privacyrisq_export.csv"
-OUTPUT_FILE = Path(__file__).parent.parent / "results" / "description_quality.xlsx"
+INPUT_FILE  = Path(__file__).parent.parent.parent / "data" / "raw" / "privacyrisq_export.csv"
+OUTPUT_FILE = Path(__file__).parent.parent.parent / "results" / "description_quality.xlsx"
 
 # Fields to check and what counts as missing
 RELEVANT_FIELDS = {

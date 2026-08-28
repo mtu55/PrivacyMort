@@ -15,8 +15,8 @@ from scipy.stats import spearmanr, kendalltau
 # ---------------------------------------------------------------------------
 # CONFIGURATION  (identisch zu scenarios.py)
 # ---------------------------------------------------------------------------
-INPUT_FILE  = Path("/data/processed/archive/privacyrisq_assetsv8.xlsx")
-OUTPUT_FILE = Path("/results/archive/severity_sensitivity_v8.xlsx")
+INPUT_FILE = Path(__file__).parent.parent.parent / "data" / "processed" / "archive" / "privacyrisq_assetsv8.xlsx"
+OUTPUT_FILE = Path(__file__).parent.parent.parent / "results" / "archive" / "severity_sensitivity_v8.xlsx"
 
 LINDDUN_EXCLUDE = []
 MIN_COUNT       = 1

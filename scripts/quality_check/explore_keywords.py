@@ -14,7 +14,9 @@ from collections import Counter
 from pathlib import Path
 
 # === CONFIGURATION ===
-INPUT_FILE = Path(__file__).parent.parent / "data" / "processed" / "privacyrisq_labeled.xlsx"
+INPUT_FILE = Path(__file__).parent.parent.parent / "data" / "processed" / "privacyrisq_labeled_final.xlsx"
+# todo privacyrisq_cleaned according to readme which leads to errors.
+#  Path problem was fixed => now: either change code below to match privacyrisq_cleaned or update readme
 
 # Terms to scan for in unlabeled descriptions
 TARGETS = [
