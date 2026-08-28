@@ -2016,5 +2016,702 @@
     "column not found: Verbleibende operative Wirksamkeit A5.34 + A5.26",
     "column not found: Verbleibende operative Wirksamkeit A8.16 + A8.15",
     "column not found: Verbleibende operative Wirksamkeit A8.16 + A8.15 UND A5.25"
-  ]
+  ],
+  "validation": {
+    "band_definition_selftest": {
+      "ok": true,
+      "problems": [],
+      "probe_mapping": {
+        "0.0": "0-10",
+        "10.0": "0-10",
+        "10.4": ">10-25",
+        "10.5": ">10-25",
+        "24.9": ">10-25",
+        "25.0": ">10-25",
+        "25.1": ">25-50",
+        "50.0": ">25-50",
+        "50.5": ">50-75",
+        "75.0": ">50-75",
+        "75.5": ">75-100",
+        "100.0": ">75-100"
+      }
+    },
+    "icc_2k": {
+      "q_t": {
+        "icc": 0.233,
+        "ci_lower": -0.439,
+        "ci_upper": 0.824,
+        "n_targets": 10,
+        "k_raters": 7,
+        "n_raters_dropped_for_missingness": 4
+      },
+      "q_m": {
+        "icc": 0.836,
+        "ci_lower": 0.638,
+        "ci_upper": 0.956,
+        "n_targets": 10,
+        "k_raters": 7,
+        "n_raters_dropped_for_missingness": 4
+      },
+      "q_c": {
+        "icc": 0.875,
+        "ci_lower": 0.746,
+        "ci_upper": 0.969,
+        "n_targets": 10,
+        "k_raters": 7,
+        "n_raters_dropped_for_missingness": 4
+      },
+      "pooled_summary_note": "Pooling ICC(2,k) across Q_T, Q_M, Q_C into a single number is deliberately not reported: the three anchors differ substantially in target variance (Q_T shows range restriction across controls, most raters converge on level 2), which would make an unweighted average misleading. Reported separately per anchor instead. Maturity level 0 is now a valid category, so no rater is dropped for answering 0."
+    },
+    "fleiss_kappa_dependency_type": {
+      "kappa": 0.585,
+      "n_items": 7,
+      "categories": [
+        "Harte Voraussetzung",
+        "Teilvoraussetzung",
+        "Wrikungsverstärker"
+      ],
+      "p_bar": 0.728,
+      "p_e": 0.344
+    },
+    "agreement_classification": {
+      "A8.28_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 85.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.28_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 85.7,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.28_Q_C": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">75-100",
+        "modal_share_pct": 71.4,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.16_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 71.4,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.16_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "0-10",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 71.4,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.16_Q_C": {
+        "n_valid": 7,
+        "label": "tendency",
+        "modal_label": "0-10",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 57.1,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": null,
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.12_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "3",
+        "modal_share_pct": 71.4,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.12_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 85.7,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.12_Q_C": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">75-100",
+        "modal_share_pct": 71.4,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.24_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.24_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 85.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.24_Q_C": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">75-100",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.16_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 85.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.16_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 85.7,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.16_Q_C": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">50-75",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 85.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.15_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 71.4,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.15_Q_M": {
+        "n_valid": 7,
+        "label": "dissent",
+        "modal_label": "0-10",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 71.4,
+        "bimodal": true,
+        "bimodal_note": "two separate peaks >= 25% (index 0 and 2)",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.15_Q_C": {
+        "n_valid": 7,
+        "label": "dissent",
+        "modal_label": "0-10",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          "0-10",
+          ">10-25"
+        ],
+        "window_share_pct": 57.1,
+        "bimodal": true,
+        "bimodal_note": "two separate peaks >= 25% (index 0 and 3)",
+        "consensus_tier": null,
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.17_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "2",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 85.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.17_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 85.7,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.17_Q_C": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">75-100",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 85.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "4",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          "3",
+          "4"
+        ],
+        "window_share_pct": 71.4,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34_Q_C": {
+        "n_valid": 7,
+        "label": "dissent",
+        "modal_label": ">25-50",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          ">25-50",
+          ">50-75"
+        ],
+        "window_share_pct": 71.4,
+        "bimodal": true,
+        "bimodal_note": "two separate peaks >= 25% (index 2 and 4)",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.5_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "3",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.5_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 85.7,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A8.5_Q_C": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">50-75",
+        "modal_share_pct": 42.9,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 85.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "window",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.15_Q_T": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": "3",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          "2",
+          "3"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.15_Q_M": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">25-50",
+        "modal_share_pct": 71.4,
+        "window_labels": [
+          ">10-25",
+          ">25-50"
+        ],
+        "window_share_pct": 100.0,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.15_Q_C": {
+        "n_valid": 7,
+        "label": "consensus",
+        "modal_label": ">50-75",
+        "modal_share_pct": 57.1,
+        "window_labels": [
+          ">50-75",
+          ">75-100"
+        ],
+        "window_share_pct": 85.7,
+        "bimodal": false,
+        "bimodal_note": "",
+        "consensus_tier": "modal",
+        "note": "same two-tier rule as results_builder.py; the 3-way label is descriptive, the binary criterion is tier1 OR tier2"
+      },
+      "A5.34 + A5.12_residual": null,
+      "A5.34 + A5.13_residual": null,
+      "A5.34 + A5.12 UND A5.13_residual": null,
+      "A5.34 + A5.17_residual": null,
+      "A5.34 + A5.26_residual": null,
+      "A8.16 + A8.15_residual": null,
+      "A8.16 + A8.15 UND A5.25_residual": null
+    },
+    "no_effect_votes": {
+      "n_votes": 4,
+      "n_coherent": 2,
+      "n_incoherent": 2,
+      "detail": [
+        {
+          "control": "A8.16",
+          "row": 1,
+          "level": 2,
+          "reduction_3_pct": 0.0,
+          "reduction_5_pct": 0.0,
+          "coherent": false
+        },
+        {
+          "control": "A8.16",
+          "row": 4,
+          "level": 0,
+          "reduction_3_pct": 0.0,
+          "reduction_5_pct": 0.0,
+          "coherent": true
+        },
+        {
+          "control": "A8.15",
+          "row": 1,
+          "level": 2,
+          "reduction_3_pct": 0.0,
+          "reduction_5_pct": 0.0,
+          "coherent": false
+        },
+        {
+          "control": "A8.15",
+          "row": 4,
+          "level": 0,
+          "reduction_3_pct": 0.0,
+          "reduction_5_pct": 0.0,
+          "coherent": true
+        }
+      ],
+      "note": "level 0 is treated as a substantive category, not as missing data; incoherent rows are reported for the paper, not silently corrected"
+    },
+    "gwet_appendix": {
+      "AC2_Q_T_levels": 0.686,
+      "AC2_Q_M_bands": 0.777,
+      "AC2_Q_C_bands": 0.51,
+      "AC2_residual_bands": null,
+      "AC1_dependency_type": 0.596,
+      "note": "appendix only, descriptive; no true value exists in a Delphi panel, so this is not interpreted as a reliability criterion"
+    },
+    "monotonicity": {
+      "q_m_le_q_c_violations": [],
+      "curve_violations": [],
+      "flat_zero_curves": [],
+      "onset_jumps": [
+        {
+          "control": "A8.28",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 50.0,
+          "delta_pct": 50.0,
+          "q_t": 3,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.16",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 10.0,
+          "delta_pct": 10.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.12",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 50.0,
+          "delta_pct": 50.0,
+          "q_t": 3,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.24",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 55.0,
+          "delta_pct": 55.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A5.16",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 50.0,
+          "delta_pct": 50.0,
+          "q_t": 3,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.15",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 10.0,
+          "delta_pct": 10.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A5.17",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 30.0,
+          "delta_pct": 30.0,
+          "q_t": 2,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A5.34",
+          "level_from": 3,
+          "level_to": 4,
+          "value_from": 0.0,
+          "value_to": 40.0,
+          "delta_pct": 40.0,
+          "q_t": 4,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A8.5",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 50.0,
+          "delta_pct": 50.0,
+          "q_t": 3,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        },
+        {
+          "control": "A5.15",
+          "level_from": 2,
+          "level_to": 3,
+          "value_from": 0.0,
+          "value_to": 40.0,
+          "delta_pct": 40.0,
+          "q_t": 3,
+          "note": "structural: single-integer-step onset from Q_T to the first level with effect; expected by construction"
+        }
+      ],
+      "curve_jump_warnings": [
+        {
+          "control": "A5.17",
+          "level_from": 3,
+          "level_to": 4,
+          "value_from": 30.0,
+          "value_to": 55.0,
+          "delta_pct": 25.0,
+          "note": "large increase outside the onset step; check the Q_M/Q_C spread or curve construction"
+        },
+        {
+          "control": "A5.17",
+          "level_from": 4,
+          "level_to": 5,
+          "value_from": 55.0,
+          "value_to": 80.0,
+          "delta_pct": 25.0,
+          "note": "large increase outside the onset step; check the Q_M/Q_C spread or curve construction"
+        }
+      ]
+    },
+    "excluded_measures": {
+      "krippendorffs_alpha": "not used (prevalence paradox under skewed marginals in this dataset)",
+      "van_der_eijk_agreement_a": "not used (unvalidated beyond edge-case self-tests)",
+      "kendalls_w": "not used (no que_1.xlsx rater-level ranking data in scope of this script)"
+    }
+  }
 }
