@@ -1,0 +1,18 @@
+# Keep the build context small: only sources and data are needed to render.
+.git/
+.gitignore
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.idea/
+.vscode/
+.claude/
+.DS_Store
+~$*
+
+# Render artefacts — produced inside the container, never copied in.
+_site/
+.quarto/

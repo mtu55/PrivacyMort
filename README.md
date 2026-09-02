@@ -245,3 +245,43 @@ Calculates ICC(2,k) and Gwet’s AC2 for Delphi Round 2.
 ```bash
 python scripts/quality_check/delphi2_reliability.py
 ```
+
+# Dockerized Quarto Report
+
+The research findings of this project are presented with Quarto.
+If you are interested in understanding the data, the procedure, the findings, and their evaluation, make sure you have installed [Docker](https://www.docker.com/get-started/) and run:
+
+```shell
+docker compose up -d
+```
+
+This will open a web browser to view the rendered Quarto document on http://localhost:8080.
+
+## Writing the report
+
+While editing `quarto/story.qmd`, use the `preview` service instead. It re-renders on
+every save and reloads the browser by itself:
+
+```shell
+docker compose up preview
+```
+
+The document is served on http://localhost:4200. `quarto/`, `data/` and `scripts/` are
+mounted from the host, so edits take effect without rebuilding the image.
+
+Both `preview` and `quarto` belong to the `dev` profile, so `docker compose up` on its
+own starts only the `web` service above.
+
+Notes for editing:
+
+- Editing an imported script under `scripts/` does not retrigger a render on its own.
+  Save the `.qmd` afterwards; the re-render then picks up the changed module.
+- The `.qmd` extension is mandatory for documents with executable code, so the file
+  cannot be renamed to `.md`. PyCharm has no Quarto plugin, but registering `*.qmd`
+  under Settings → Editor → File Types → Markdown gives it Markdown editing support.
+
+To render once without a server, writing the HTML to `_site/` on the host:
+
+```shell
+docker compose run --rm quarto
+```

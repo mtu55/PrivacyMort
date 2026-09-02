@@ -1,0 +1,63 @@
+---
+title: "PrivacyMort Research"
+format: html
+jupyter: python3
+---
+
+# Introduction
+
+This document describes the research process and results.
+
+## MVP - Example
+
+## Data
+
+Use (mounted) data in Quarto - the results of the commands will be displayed in the rendered document.
+
+```{python}
+import pandas as pd
+
+df = pd.read_excel("../data/processed/privacyrisq_labeled_final.xlsx")
+df.head()
+```
+
+```{python}
+df.describe()
+```
+
+## Scripts
+
+Similarly, scripts can be executed and the results displayed:
+
+```{python}
+import sys
+
+sys.path.insert(0, "..")
+from scripts.label import label_data
+
+examples = pd.DataFrame({"Description": [
+    "The breach exposed full names, email addresses and phone numbers.",
+    "Attackers obtained bcrypt password hashes and API tokens.",
+    "Medical records including diagnoses were left in a public bucket.",
+    "A misconfigured server exposed internal build logs.",
+]})
+
+label_data(examples)[[
+    "Description",
+    "has_personal_data",
+    "has_special_categories",
+    "has_credentials",
+]]
+```
+
+## Analysis
+
+...
+
+## Results
+
+...
+
+## Conclusion
+
+...

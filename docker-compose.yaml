@@ -1,0 +1,46 @@
+services:
+  web:
+    build:
+      context: .
+      target: serve
+    image: privacy_mort_web
+    container_name: privacy_mort_web
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  preview:
+    profiles: ["dev"]
+    build:
+      context: .
+      target: quarto
+    image: privacy_mort_quarto
+    container_name: privacy_mort_preview
+    command:
+      - quarto
+      - preview
+      - quarto/story.qmd
+      - --host
+      - 0.0.0.0
+      - --port
+      - "4200"
+      - --no-browser
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./quarto:/project/quarto
+      - ./data:/project/data
+      - ./scripts:/project/scripts
+
+  quarto:
+    profiles: ["dev"]
+    build:
+      context: .
+      target: quarto
+    image: privacy_mort_quarto
+    container_name: privacy_mort_quarto
+    volumes:
+      - ./quarto:/project/quarto
+      - ./data:/project/data
+      - ./scripts:/project/scripts
+      - ./_site:/project/_site

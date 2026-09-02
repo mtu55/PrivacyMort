@@ -15,5 +15,12 @@ venv/
 .idea/
 .vscode/
 
+# Quarto
+_site/
+.quarto/
+
 # macOS
 .DS_Store
+
+/quarto/*
+!/quarto/*.qmd
